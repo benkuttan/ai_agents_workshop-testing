@@ -6,9 +6,9 @@ tools_module = importlib.import_module("tools")
 
 MODEL = os.getenv("LLM_MODEL", "gpt-4o")
 
-st.set_page_config(page_title="AI Agent Workshop", page_icon="🧭")
-st.title("🧭 Minimal AI Agent")
-st.caption("Model‑tool loop with Streamlit UI (for AI workshop on 26th Aug 2025).")
+st.set_page_config(page_title="BenAI Agent Workshop", page_icon="🧭")
+st.title("🧭 Minimal BenAI Agent")
+st.caption(" Ask any question — our BenAI minimalizes, differentiates, and delivers clear answers. Created by Benison Martin.")
 
 with st.sidebar:
     st.subheader("Settings")
@@ -18,12 +18,12 @@ with st.sidebar:
     st.markdown("**Env needed:** `LLM_API_KEY` (and optionally `LLM_BASE_URL`, `LLM_MODEL`).")
 
 prompt = st.text_input(
-    "What should the agent do?",
+    "What should you want to agent do?",
     "Plan 3 steps to learn GenAI safely and compute 2*(10+5). Also search 'responsible AI checklist'."
 )
 
 if st.button("Run"):
-    with st.spinner("Thinking…"):
+    with st.spinner("Thinking for better answer…"):
         tools = build_tools()
         messages = [
             {"role": "system", "content": SYSTEM},
